@@ -1,0 +1,21 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f7c008fd2f5, pid=48531, tid=48548
+#
+# JRE version: OpenJDK Runtime Environment (14.0.2+12) (build 14.0.2+12-46)
+# Java VM: OpenJDK 64-Bit Server VM (14.0.2+12-46, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x42f5]  ImageLocation::set_data(unsigned char*)+0x5
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/share/apport/apport %p %s %c %d %P %E" (or dumping to /home/sabira/git-repository/omnirio-assignment/account-service/core.48531)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+ShowCodeDetailsInExceptionMessages -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:35773 -javaagent:/home/sabira/eclipse/jee-2020-09/eclipse/configuration/org.eclipse.osgi/401/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 com.omnirio.assignment.account.AccountServiceApplication
+
+Host: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz, 4 cores, 7G, Ubuntu 20.04.1 LTS
