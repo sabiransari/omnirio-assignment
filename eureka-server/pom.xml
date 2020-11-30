@@ -5,18 +5,18 @@
     <artifactId>omnirio-assignment</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.omnirio.assignment.user</groupId>
-  <artifactId>user-service</artifactId>
-  <name>user-service</name>
+  <artifactId>eureka-server</artifactId>
+  <name>eureka-server</name>
+  
+  <properties>
+        <spring-boot.version>2.1.2.RELEASE</spring-boot.version>
+    </properties>
   
   <dependencies>
   	<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.springframework.cloud</groupId> -->
-<!-- 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId> -->
-<!-- 		</dependency> -->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+        </dependency>
   </dependencies>
+  
 </project>

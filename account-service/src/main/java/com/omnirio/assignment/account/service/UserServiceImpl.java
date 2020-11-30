@@ -1,9 +1,7 @@
 package com.omnirio.assignment.account.service;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpHeaders;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -16,17 +14,12 @@ import reactor.core.publisher.Mono;
 @Component
 public class UserServiceImpl implements UserService {
 	
-	private final WebClient webClient;
+	@Autowired
+	private WebClient.Builder webClientBuilder;
 	
-	public UserServiceImpl(@Value("${services.user}") String baseUrl) {
-		this.webClient = WebClient.builder().baseUrl(baseUrl)
-				.defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON.toString())
-				.build();
-	}
-
 	@Override
 	public Mono<User> getUserById(String id, String token) {
-		return webClient.get().uri("/user/{id}", id)
+		return webClientBuilder.build().get().uri("http://user-service/user/{id}", id)
 				.header("Authorization", token)
 				.retrieve()
 				.onStatus(status -> HttpStatus.NOT_FOUND.equals(status), response -> {
@@ -37,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Mono<User> createUser(User newUser, String token) {
-		return webClient.post().uri("/user")
+		return webClientBuilder.build().post().uri("http://user-service/user")
 		.header("Authorization", token)
 		.body(Mono.just(newUser), User.class)
 		.retrieve()

@@ -8,4 +8,11 @@
   <groupId>com.omnirio.assignment.account</groupId>
   <artifactId>account-service</artifactId>
   <name>account-service</name>
+  
+  <dependencies>
+  	<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+  </dependencies>
 </project>
